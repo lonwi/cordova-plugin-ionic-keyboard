@@ -197,14 +197,14 @@ typedef enum : NSUInteger {
         case ResizeBody:
         {
             NSString *js = [NSString stringWithFormat:@"Keyboard.fireOnResize(%d, %d, document.body);",
-                            _paddingBottom, (int)f.size.height];
+                            _paddingBottom + statusBarHeight, (int)f.size.height];
             [self.commandDelegate evalJs:js];
             break;
         }
         case ResizeIonic:
         {
             NSString *js = [NSString stringWithFormat:@"Keyboard.fireOnResize(%d, %d, document.querySelector('ion-app'));",
-                            _paddingBottom, (int)f.size.height];
+                            _paddingBottom + statusBarHeight, (int)f.size.height];
             [self.commandDelegate evalJs:js];
             break;
         }
